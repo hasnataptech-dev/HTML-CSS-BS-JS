@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tasks</title>
+    <style>
+        .highlight{
+            background-color: yellow;
+            color: darkcyan;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="head">jquery using CDN</h1>
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi laborum ex consequatur laboriosam, totam qui deserunt repellendus facere maiores explicabo impedit neque pariatur accusamus distinctio illum quibusdam inventore ad iure?</p>
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi laborum ex consequatur laboriosam, totam qui deserunt repellendus facere maiores explicabo impedit neque pariatur accusamus distinctio illum quibusdam inventore ad iure?</p>
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi laborum ex consequatur laboriosam, totam qui deserunt repellendus facere maiores explicabo impedit neque pariatur accusamus distinctio illum quibusdam inventore ad iure?</p>
+    <button id="hideButton">Hide paragraphs</button>
+    <button id="showButton">Show paragraphs</button>
+    <div id="toggleDiv" style="margin-top: 20px; padding: 10px; border: 1px solid black;">Click Me</div>
+
+    <h1>Attribute selector example</h1>
+    <input type="text" name="username" placeholder="Enter your username">
+    <input type="email" name="email" placeholder="Enter your email">
+    <input type="password" name="password" placeholder="Enter your password">
+<br><br>
+    <input type="text" id="inputField" placeholder="Focus or Blur me!">
+
+    <ul id="parentList">
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+    </ul>
+    <button id="addListItem">Add new Item</button>
+
+    <div class="container mt-5">
+        <h1 class="mb-4">fadeToggle() and fadeTo() Example</h1>
+        <button id="fadeToggleBtn" class="btn btn-info">Fade Toggle</button>
+        <button id="fadeToBtn" class="btn btn-dark">Fade To</button>
+        <div id="box1" class="mt-3 p-3 bg-primary text-white">
+            This is a box
+        </div>
+
+        <h1 class="mb-4">fadeIn() and fadeOut() Example</h1>
+        <button id="fadeInBtn" class="btn btn-warning">Fade In</button>
+        <button id="fadeOutBtn" class="btn btn-danger">Fade Out</button>
+        <div id="box2" class="mt-3 p-3 bg-success text-white" style="display:none;">
+            This is a box
+        </div>
+
+        <h1 class="mb-4">slideDown() and slideUp() Example</h1>
+        <button id="slideDownBtn" class="btn btn-primary">Slide Down</button>
+        <button id="slideUpBtn" class="btn btn-secondary">Slide Up</button>
+        <div id="box3" class="mt-3 p-3 bg-danger text-white" style="display:none;">
+            This is a box
+        </div>
+
+        <h1 class="mb-4">slideToggle() Example</h1>
+        <button id="slideToggleBtn" class="btn btn-info">Slide Toggle</button>
+        <div id="box4" class="mt-3 p-3 bg-dark text-white">
+            This is a box
+        </div>
+        
+        <h1 class="mb-4">animate() Example</h1>
+        <button id="animateBtn" class="btn btn-warning">Animate</button>
+        <div id="box5" class="mt-3 p-3 bg-success text-white"
+        style="width:100px; height:100px; background-color:aqua; position:relative;">
+            This is a box
+        </div>
+
+        <h1 class="mb-4">Value Example</h1>
+        <input type="text" id="myInput">
+
+        <h1 class="mb-4">Remove and Empty Example</h1>
+        <div id="myDiv">
+            <p>This is a paragraph.</p>
+            <span>This is a span.</span>
+        </div>
+    </div>
+</body>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script>
+    $(function() {
+        $("#head").hover(function(){
+        $("#head").css('color','blue');    
+    });
+    })
+
+    $("#hideButton").click(function(){
+        $("p").hide();
+    });
+    $("#showButton").click(function(){
+        $("p").show();
+    });
+    $("#toggleDiv").click(function(){
+        $(this).toggleClass("highlight");
+    });
+
+
+    $(function(){
+    $("input[name='username']").val("John Doe");
+    $("input[type='text']").css("border","2px solid red");
+    }); 
+
+    $(function(){
+    $("#inputField").focus(function(){
+    $(this).css('background-color','yellow')
+    });
+    $("#inputField").blur(function(){
+    $(this).css('background-color','white')
+    });
+    
+    $('#parentList').on('click','li',function(){
+        alert('You clicked the:' +$(this).text())
+    });
+    $('#addListItem').on('click',function(){
+        $('#parentList').append('<li>New item</li>')})
+    $("#fadeToggleBtn").click(function() {
+                $("#box1").fadeToggle(1000);
+     });
+
+    $("#fadeToBtn").click(function() {
+    $("#box1").fadeTo(1000, 0.5);
+     });
+    $("#fadeInBtn").click(function() {
+    $("#box2").fadeIn(1000);
+    });
+
+    $("#fadeOutBtn").click(function() {
+    $("#box2").fadeOut(1000);
+    });
+
+    $("#slideDownBtn").click(function() {
+    $("#box3").slideDown(1000);
+    });
+
+    $("#slideUpBtn").click(function() {
+    $("#box3").slideUp(1000);
+    });
+
+    $("#slideToggleBtn").click(function() {
+    $("#box4").slideToggle(1000);
+    });
+    $("#animateBtn").click(function() {
+    $("#box5").animate({
+    left: '250px',
+    opacity: '0.5',
+    height: '+=150px',
+    width: '+=150px'}, 1000);
+    });
+    $("#myInput").val("New value");
+    $("#myDiv p").remove();
+    $("#myDiv").empty();
+        });
+ 
+</script>
+</html>
